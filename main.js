@@ -1,22 +1,22 @@
 let player = {};
 const playerSetBtn = document.querySelector("#playerSetBtn");
-let playerSet = document.querySelector("#playerSet");
+const playerSet = document.querySelector("#playerSet");
 
 playerSetBtn.addEventListener("click", function () {
     const count = parseInt(playerSet.value);
 
     for (let i = 1; i <= count; i++) {
-        player[i] = "";
+        player[i] = true;
     }
     playerSet.value = "";
 })
 
-const nameInput = document.querySelector("#nameInput");
-const searchBtn = document.querySelector("#searchBtn");
+const keySearch = document.querySelector("#keySearch");
+const keySearchBtn = document.querySelector("#keySearchBtn");
 
-searchBtn.addEventListener("click", function () {
-    if (nameInput.value in player) {
-        console.log(player[nameInput.value]);
+keySearchBtn.addEventListener("click", function () {
+    if (keySearch.value in player) {
+        console.log(player[keySearch.value]);
     } else {
         console.log("キーがありません");
     }
