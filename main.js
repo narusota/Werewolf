@@ -1,4 +1,4 @@
-let player = {};
+const player = {};
 const playerSetBtn = document.querySelector("#playerSetBtn");
 const playerSet = document.querySelector("#playerSet");
 const errorMsg = document.querySelector("#errorMsg");
@@ -13,14 +13,14 @@ playerSetBtn.addEventListener("click", function () {
 
     errorMsg.textContent = "";
 
-    const ramdom = Math.floor(Math.random() * count) + 1;
+    const random = Math.floor(Math.random() * count) + 1;
 
     for (let i = 1; i <= count; i++) {
         player[i] = true;
     }
 
-    player[ramdom] = false;
-    console.log(`${ramdom}にfalseが入りました`);
+    player[random] = false;
+    console.log(`${random}にfalseが入りました`);
            
     playerSet.value = "";
 })
