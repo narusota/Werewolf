@@ -54,17 +54,3 @@ playerSetBtn.addEventListener("click", function () {
 
     playerSet.value = "";
 })
-
-const keySearch = document.querySelector("#keySearch");
-const keySearchBtn = document.querySelector("#keySearchBtn");
-
-keySearchBtn.addEventListener("click", function () {
-    if (keySearch.value in player) {
-        console.log(player[keySearch.value]);
-    } else {
-        console.log("キーがありません");
-    }
-})
-
-
-
