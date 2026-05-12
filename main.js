@@ -3,6 +3,8 @@ const playerSetBtn = document.querySelector("#playerSetBtn");
 const playerSet = document.querySelector("#playerSet");
 const errorMsg = document.querySelector("#errorMsg");
 
+const buttonContainer = document.querySelector("#buttonContainer");
+
 playerSetBtn.addEventListener("click", function () {
     const count = parseInt(playerSet.value);
 
@@ -53,4 +55,22 @@ playerSetBtn.addEventListener("click", function () {
     console.log(player);
 
     playerSet.value = "";
+    buttonContainer.innerHTML = "";
+
+    //投票ボタンを作成
+    for (let i = 1; i <= count; i++) {
+        let btn = document.createElement("button");
+        let input = document.createElement("input");
+        let br = document.createElement("br");
+        btn.textContent = i;
+        input.type = "number";
+        buttonContainer.appendChild(btn);
+        buttonContainer.appendChild(input);
+        buttonContainer.appendChild(br);
+    }
+
+    const voteBtn = document.createElement("button");
+    voteBtn.textContent = "投票";
+    buttonContainer.appendChild(voteBtn);
+
 })
