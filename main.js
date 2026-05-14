@@ -3,8 +3,6 @@ const playerSetBtn = document.querySelector("#playerSetBtn");
 const playerSet = document.querySelector("#playerSet");
 const errorMsg = document.querySelector("#errorMsg");
 const buttonContainer = document.querySelector("#buttonContainer");
-//countをグローバルスコープに設定
-let count = 0;
 
 playerSetBtn.addEventListener("click", function () {
     count = parseInt(playerSet.value);
@@ -65,6 +63,8 @@ playerSetBtn.addEventListener("click", function () {
         let br = document.createElement("br");
         btn.textContent = i;
         input.type = "number";
+        //最小値を設定
+        input.min = 0;
         input.id = `btn${i}`;
         buttonContainer.appendChild(btn);
         buttonContainer.appendChild(input);
