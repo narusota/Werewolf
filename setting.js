@@ -2,10 +2,9 @@ const player = {};
 const playerSetBtn = document.querySelector("#playerSetBtn");
 const playerSet = document.querySelector("#playerSet");
 const errorMsg = document.querySelector("#errorMsg");
-const buttonContainer = document.querySelector("#buttonContainer");
 
 playerSetBtn.addEventListener("click", function () {
-    count = parseInt(playerSet.value);
+    let count = parseInt(playerSet.value);
 
     if (count < 4 || 16 < count) {
         errorMsg.textContent = "4~16人で設定してください"
@@ -53,40 +52,8 @@ playerSetBtn.addEventListener("click", function () {
     //playerを表示
     console.log(player);
 
-    playerSet.value = "";
-    buttonContainer.innerHTML = "";
-
-    //投票ボタンを作成
-    for (let i = 1; i <= count; i++) {
-        let btn = document.createElement("button");
-        let input = document.createElement("input");
-        let br = document.createElement("br");
-        btn.textContent = i;
-        input.type = "number";
-        //最小値を設定
-        input.min = 0;
-        input.id = `btn${i}`;
-        buttonContainer.appendChild(btn);
-        buttonContainer.appendChild(input);
-        buttonContainer.appendChild(br);
-    }
-
-    const voteBtn = document.createElement("button");
-    voteBtn.textContent = "投票";
-    voteBtn.id = "voteBtn";
-    buttonContainer.appendChild(voteBtn);
-
-    //投票数を制限
-    voteBtn.addEventListener("click", () => {
-        let total = 0;
-        for (let i = 1; i <= count; i++) {
-            let inputVal = parseInt(document.querySelector(`#btn${i}`).value) || 0;
-            total += inputVal;
-        }
-        if (total >= count) {
-            alert("投票数が人数を超えています");
-        }
-    })
+    //localStorageを追加
+    localStorage.setItem("player", JSON.stringify(player));
+    localStorage.setItem("count", count);
+    location.href = "vote.html";
 })
-
-
