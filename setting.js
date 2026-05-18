@@ -55,5 +55,5 @@ playerSetBtn.addEventListener("click", function () {
     //localStorageを追加
     localStorage.setItem("player", JSON.stringify(player));
     localStorage.setItem("count", count);
-    location.href = "vote.html";
+    location.href = "name.html";
 })
